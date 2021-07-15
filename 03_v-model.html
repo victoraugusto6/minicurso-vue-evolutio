@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Meu primeiro aplicativo Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="v1"><br>
+    {{ v1 }}, <br>{{ tipo(v1) }}
+
+    <hr>
+
+    <textarea v-model.lazy.number.trim="v2"></textarea><br>
+    ({{ v2 }}), <br>{{ tipo(v2) }}
+
+    <hr>
+
+    <input type="checkbox" v-model="v3"><br>
+    {{ v3 }}, <br>{{ tipo(v3) }}
+
+    <hr>
+
+    <select multiple v-model="v4">
+        <option value="abacate">Abacate</option>
+        <option value="banana">Banana</option>
+        <option value="caju">Caju</option>
+    </select><br>
+    {{ v4 }}, {{ tipo(v4) }}
+
+    <hr>
+
+    <input type="radio" v-model="v5" value="abacate">Abacate<br>
+    <input type="radio" v-model="v5" value="banana">Banana<br>
+    <input type="radio" v-model="v5" value="caju">Caju<br>
+    {{ v5 }}, {{ tipo(v5) }}
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            v1: null,
+            v2: null,
+            v3: null,
+            v4: [],
+            v5: null,
+        },
+        methods: {
+            tipo: function (x) {
+                return typeof (x)
+            }
+        }
+    });
+</script>
+</body>
+</html>
